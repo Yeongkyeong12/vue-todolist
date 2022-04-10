@@ -1,19 +1,17 @@
-# vue-todolist
+# 📑 VUE TODOLIST APP
 
-## Project setup
-```
-yarn install
-```
+## 소개
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+- Vuetify, Vue.js를 활용한 todolist 앱입니다.
+- https://melodious-pithivier-94556a.netlify.app/
+  <br>
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## 구현 내용
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- TODO 목록의 입력 및 삭제가 가능합니다.
+- Vuetify의 UI 컴포넌트를 활용해 디자인을 간결화했습니다.
+
+## 보완할 점
+
+-  API 통신 추가하기
+-  Vuex로 상태관리하기
