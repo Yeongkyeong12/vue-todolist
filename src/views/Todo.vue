@@ -1,10 +1,15 @@
 <template>
   <div class="home">
     <v-text-field
+      v-model="newTaskTitle"
+      @click:append="addTask"
+      @keyup.enter="addTask"
       class="pa-3"
       outlined
-      label="Add Task"
-      append-icon="mdi-map-marker"
+      label="Add Todos.."
+      append-icon="mdi-plus"
+      hide-details
+      clearable
     ></v-text-field>
     <v-list class="pt-0" flat>
       <div v-for="task in tasks" :key="task.id">
@@ -42,26 +47,31 @@ export default {
   name: "Home",
   data() {
     return {
+      newTaskTitle: "",
       tasks: [
         {
           id: 1,
-          title: "Work out",
+          title: "운동 다녀오기🏃‍♀️",
           done: false,
         },
         {
           id: 2,
-          title: "Study JavaScript",
-          done: false,
-        },
-        {
-          id: 3,
-          title: "Take Coffee",
+          title: "자바스크립트 공부하기💻",
           done: false,
         },
       ],
     };
   },
   methods: {
+    addTask() {
+      let newTask = {
+        id: Date.now(),
+        title: this.newTaskTitle,
+        done: false,
+      };
+      this.tasks.push(newTask);
+      this.newTaskTitle = "";
+    },
     doneTask(id) {
       // filter함수는 하나의 object가 아닌 array를 반환하므로, [0]을 포함시킴
       let task = this.tasks.filter((task) => task.id === id)[0];
